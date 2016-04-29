@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="lepin.css">
+    <?php
+      include('gotime.php');
+    ?>
+    <title>Lepin Database</title>
+    <div id="nav">
+      <a href="index.html">Home</a> &#8226;
+      <a href="collection.html">Collection</a> &#8226;
+      <a href="faq.html">FAQ</a>
+    </div>
+  </head>
+
+  <body>
+    <h2>Add your new Lepin (or name brand variant) set below!</h2>
+
+  <form action='gotime.php' id='adder' class='inps' method='post'>
+  <input type="text" placeholder='Set Number' name='number'>
+    <input type='text' placeholder='Set Catagory' name='catagory'>
+    <input type='text' placeholder='Set Name' name='name'>
+    <input type='text' placeholder='Number of Parts' name='parts'>
+    <input type='submit' value='Add'>
+  </form>
+
+  </body>
+
+
+</html>

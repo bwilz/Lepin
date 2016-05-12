@@ -1,31 +1,29 @@
+<?php
+  ob_start();
+  session_start();
+?>
+
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="lepin.css">
     <?php
-      include('gotime.php');
+      require('login.php');
     ?>
     <title>Lepin Database</title>
-    <div id="nav">
-      <a href="index.html">Home</a> &#8226;
-      <a href="collection.html">Collection</a> &#8226;
-      <a href="faq.html">FAQ</a>
-    </div>
+    <h1>Welcome to the Lepin database</h1>
   </head>
-
   <body>
-    <h2>Add your new Lepin (or name brand variant) set below!</h2>
+    <div class='inps'><img class='logo' src='lepin-logo.jpg' alt='lepin logo'></div><br />
+    <h2>Please login</h2>
 
 
-  <form action='gotime.php' id='adder' class='inps' method='post'>
-    <img class='logo' src='lepin-logo.jpg' alt='lepin logo'><br />
-    <input type="text" placeholder='Set Number' name='number'>
-    <input type='text' placeholder='Set Catagory' name='catagory'>
-    <input type='text' placeholder='Set Name' name='name'>
-    <input type='text' placeholder='Number of Parts' name='parts'>
-    <input type='submit' value='Add'>
-  </form>
+    <form class="inps" action="login.php" method="post">
+      <h4><?php echo $msg; ?></h4>
+      <input type="text" class="" name="username" placeholder="username" required autofocus></br>
+      <input type="text" class="" name="password" placeholder="password" required></br>
+      <button class="btn" type="submit" name="login">Login</button>
+    </form>
 
   </body>
-
 
 </html>

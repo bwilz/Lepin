@@ -1,6 +1,6 @@
 <?php
 include('header.html');
-
+include('addAnother.php');
 
 $servername = 'localhost';
 $username = 'user@localhost';
@@ -31,6 +31,10 @@ if(isset($_GET['sorter'])){
 //querys the database for all records
 $showSets = "Select * from sets order by $field $sort";
 
+//getting total parts
+$totalparts = "select sum(parts) as total from sets";
+$tpResults = $conn->query($totalparts);
+$tps=$tpResults->fetch_assoc();
 
 
 $result = $conn->query($showSets);
@@ -38,12 +42,18 @@ $result = $conn->query($showSets);
 
   if($result->num_rows > 0){
     echo "<table class='center'>";
+
+      echo "<tr>";
+              echo "<td class='totals' colspan='3'>Total Sets: ".$result->num_rows."</td>";
+              echo "<td class='totals2' colspan='2'>Total Parts: ".$tps['total']."</td>";
+            echo "</tr>";
+
       echo "<tr class='headrow'>";
           echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=number'>Set Number</a></th>";
           echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=catagory'>Catagory</a></th>";
           echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=name'>Set Name</a></th>";
           echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=parts'>Number of Parts</a></th>";
-          echo "<th class='thead' colspan=2>Modify/Delete</th>";
+          echo "<th class='thead'>Modify/Delete</th>";
     echo "</tr>";
 
 

@@ -13,11 +13,11 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
   $name = $_POST['username'];
   $pass = $_POST['password'];
 
-  if ($name == 'guest' && $pass == 'guest') {
+  if ($name == 'admin' && $pass == 'admin') {
 
     $_SESSION['valid'] = true;
     $_SESSION['timeout'] = time();
-    $_SESSION['username'] = 'guest';
+    $_SESSION['username'] = 'admin';
 
     header('Location: home.html');
   }else {

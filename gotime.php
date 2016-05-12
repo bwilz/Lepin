@@ -1,4 +1,6 @@
 <?php
+include('header.html');
+
 $servername = 'localhost';
 $username = 'user@localhost';
 $password = 'password';
@@ -28,7 +30,7 @@ $sql = "INSERT INTO sets (id, number, catagory, name, parts) VALUES ('$lid', '$l
 
 if ($conn->query($sql) === TRUE) {
 
-  echo "<h1>New set added!</h1></br><h2>(or updated)</h2>";
+  echo "<div class='added'><h1>New set added!</h1></br><h2>(or updated)</h2></div>";
 
   header('Refresh: 2; URL = collection.php');
 }else{

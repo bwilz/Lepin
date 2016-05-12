@@ -1,5 +1,9 @@
 <?php
-include('header.html');
+echo '<html><head> <link rel="stylesheet" type="text/css" href="lepin.css">';
+echo  "<h1>Sorry</h1><div class='inps'><img class='logo' src='lepin-logo.jpg' alt='lepin logo'></div><br />";
+echo '</head>';
+
+
 $msg = "";
 
 

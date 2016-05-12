@@ -22,7 +22,7 @@ $result = $conn->query($deleted);
 if ($conn->query($delete) === TRUE) {
 
   echo "<h1>Set Deleted!</h1>";
-  echo "set id: " . $selected;
+
   header('Refresh: 2; URL = collection.php');
 }else{
   echo 'Error: ' . $delete . '<br>' . $conn->error;

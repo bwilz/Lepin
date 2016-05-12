@@ -14,22 +14,36 @@ if($conn->connect_error){
   die('connection failed: ' . $conn->connect_error);
 }
 
+$field = 'id';
+$sort = 'DESC';
+
+if(isset($_GET['sorter'])){
+  $field = $_GET['field'];
+  if($_GET['sorter']=='ASC')
+  {
+    $sort='DESC';
+  }else{
+    $sort='ASC';
+  }
+}
+
+
 //querys the database for all records
-$showSets = "Select * from sets";
+$showSets = "Select * from sets order by $field $sort";
 
 
-//put function here maybe
+
 $result = $conn->query($showSets);
 
 
   if($result->num_rows > 0){
     echo "<table class='center'>";
-      echo "<tr>";
-          echo "<th>Set Number</th>";
-          echo "<th>Catagory</th>";
-          echo "<th>Set Name</th>";
-          echo "<th>Number of Parts</th>";
-          echo "<th colspan=2>Modify/Delete</th>";
+      echo "<tr class='headrow'>";
+          echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=number'>Set Number</a></th>";
+          echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=catagory'>Catagory</a></th>";
+          echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=name'>Set Name</a></th>";
+          echo "<th><a class='thead' href='collection.php?sorter=".$sort."&field=parts'>Number of Parts</a></th>";
+          echo "<th class='thead' colspan=2>Modify/Delete</th>";
     echo "</tr>";
 
 
@@ -46,7 +60,12 @@ $result = $conn->query($showSets);
   }
     echo "</table>";
 
+  }else{
+    echo '<h1>No sets found</h1>';
   }
+
+
+
 
 $conn->close();
 

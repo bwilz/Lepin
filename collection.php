@@ -14,6 +14,7 @@ if($conn->connect_error){
   die('connection failed: ' . $conn->connect_error);
 }
 
+//querys the database for all records
 $showSets = "Select * from sets";
 
 
@@ -28,8 +29,9 @@ $result = $conn->query($showSets);
           echo "<th>Catagory</th>";
           echo "<th>Set Name</th>";
           echo "<th>Number of Parts</th>";
+          echo "<th colspan=2>Modify/Delete</th>";
     echo "</tr>";
-  
+
 
   //output data of each row //number, catagory, name, parts
   while($row = $result->fetch_assoc()){
@@ -39,7 +41,7 @@ $result = $conn->query($showSets);
       echo "<td>" . $row['name'] . "</td>";
       echo "<td>" . $row['parts'] . "</td>";
       //button to modify the record
-      echo "<td><form action='modify.php' method='post'><button type='submit' name='button' value=".$row['id'].">Modify</button></form>";
+      echo "<td><form action='modify.php' method='post'><button type='submit' name='button' value=".$row['id'].">Modify/Delete</button></form>";
     echo "</tr>";
   }
     echo "</table>";

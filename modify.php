@@ -15,6 +15,7 @@ if($conn->connect_error){
   die('connection failed: ' . $conn->connect_error);
 }
 
+//querys for specific record
 $showSet = "Select * from sets where id = '$selected'";
 
 
@@ -25,6 +26,7 @@ $result = $conn->query($showSet);
    echo "<form action='gotime.php' id='adder' class='inps' method='post'>";
 
   while($row = $result->fetch_assoc()){
+    echo "<input type='hidden' value='". $row['id'] ."'name='id'>";
     echo "<input type='text' value='". $row['number'] . "' name='number'>";
     echo "<input type='text' value='". $row['catagory'] . "' name='catagory'>";
     echo "<input type='text' value='". $row['name'] . "' name='name'>";
@@ -32,8 +34,8 @@ $result = $conn->query($showSet);
       //button to delete the record
    // echo "<form action='modify.php' method='post'><button type='submit' name='button' value='delete'>Delete</button></form>";
   }
-    echo "<input type='submit' value='Save'>";
-    echo "<input type='delete' value='Delete>";
+    echo "<button type='submit' formaction='gotime.php' name='save' value='save'>Save</button>";
+    echo "<button type='submit' formaction='delete.php' name='delete' value='delete'>Delete</button>";
     echo "</form>";
 
   }

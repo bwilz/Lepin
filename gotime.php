@@ -13,10 +13,10 @@ if($_POST['id'] == true) {
   //else it assigns the next auto-incr id
   $lid = "DEFAULT";
 }
-$lnumber = $_POST['number'];
-$lcatagory = $_POST['catagory'];
-$lname = $_POST['name'];
-$lparts = $_POST['parts'];
+$lnumber = addslashes($_POST['number']);
+$lcatagory = addslashes($_POST['catagory']);
+$lname = addslashes($_POST['name']);
+$lparts = addslashes($_POST['parts']);
 
 //create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

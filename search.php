@@ -4,7 +4,7 @@ include('connect.php');
 
 echo '<h1>Search Results</h1>';
 
-$query = 'Select * from sets where '. addslashes($_POST['list']).' LIKE "'. addslashes($_POST['search']).'"';
+$query = 'Select * from sets where '. addslashes($_POST['list']).' LIKE "%'. addslashes($_POST['search']).'%"';
 
 
 $result = $conn->query($query);
@@ -32,6 +32,8 @@ $result = $conn->query($query);
 
   }else{
     echo '<h1>No sets found</h1>';
+    
+        header('Refresh: 1; URL = home.html');
   }
 
 

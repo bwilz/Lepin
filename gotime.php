@@ -4,7 +4,7 @@ include('header.html');
 $servername = 'localhost';
 $username = 'user@localhost';
 $password = 'password';
-$dbname = 'lepinbase';
+$dbname = 'heroku_533c44dbd04c1b5';
 
 //checks to see if the set already exists and has been modified in modify.php
 if($_POST['id'] == true) {

@@ -3,7 +3,7 @@
 $servername = 'localhost';
 $username = 'user@localhost';
 $password = 'password';
-$dbname = 'heroku_533c44dbd04c1b5';
+$dbname = 'lepinbase';
 
 //create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

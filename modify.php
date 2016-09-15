@@ -4,7 +4,7 @@ include('header.html');
 $servername = 'localhost';
 $username = 'user@localhost';
 $password = 'password';
-$dbname = 'heroku_533c44dbd04c1b5';
+$dbname = 'lepinbase';
 
 $selected = $_POST['button'];
 
